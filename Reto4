@@ -1,0 +1,144 @@
+edsdd
+
+# Forma
+# + es_ regular: booleano
+# + vértices: lista (Punto)
+# + bordes: lista (Línea)
+# + ángulos_interiores: lista (flotante)
+# +área_de cálculo(yo)
+# +compute_perimeter(yo)
+# +calcular_ángulos_interiores(yo)
+
+class Point ():
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+class Line():
+    def __init__ ( self, punto_inicial: "Point",  punto_final: "Point"):
+        self.punto_I = punto_inicial
+        self.punto_F =punto_final
+
+        
+    def longitud(self):
+        return ((self.punto_F.x- self.punto_I.x)**2 + (self.punto_I.y - self.punto_F.y)**2)**0.5
+
+
+
+
+class Shape():
+    def __init__(self):
+        pass
+
+    
+    def calcular_area(self ):
+        pass
+
+     
+#    def vertices(self, lista : "Punto"):
+#        pass
+#
+#
+#   def aristas(self, lista : "Linea"):
+#        pass
+
+
+    def angulos_interiores (self ):
+        pass
+     
+
+    def calcular_perimetro(self):
+        pass
+
+
+class Rectangulo (Shape):
+    def __init__(self, lado: int , lado1: int):
+        super().__init__()
+        self.perimetro =( lado + lado1)*2
+        self.area = ( lado*lado1)
+
+    def calcular_perimetro(self):
+        return self.perimetro
+
+    def calcular_area(self):
+        return self.area
+
+class Cuadrado (Rectangulo):
+    def __init__(self, lado: int, lado1):
+        if lado == lado1:
+            super().__init__(lado, lado1)
+        else:
+            self.perimetro = "No es un cuadrado"
+            self.area = "No es un cuadrado"
+
+    def calcular_perimetro(self):
+        return self.perimetro
+
+    def calcular_area(self):
+        return self.area
+
+
+class Triangulo(Shape ):
+    def __init__(self, lado: "Point" , lado1: "Point", lado2 : "Point"):
+        super().__init__()
+        self.lado  = lado
+        self.lado1 = lado1
+        self.lado2 = lado2
+        self.perimetro = lado + lado1 + lado2
+        self.perimetro_2 = self.perimetro /2
+        self.area = ((self.perimetro_2)*(self.perimetro_2-self.lado)*(self.perimetro_2-self.lado1)*(self.perimetro_2-self.lado2))**0.5
+
+    def calcular_perimetro(self):
+        return self.perimetro
+
+    def calcular_area(self):
+        return self.area
+
+
+class   Isosceles(Triangulo):
+    pass
+
+
+class Equilateral(Triangulo):
+    pass
+
+
+class Scalene(Triangulo):
+    pass
+
+
+class TriRectangle(Triangulo):
+    pass
+
+
+
+figura1 = Cuadrado(5,5)
+figura2 = Rectangulo(4,3)
+figura3 = Triangulo ( 4,3,5)
+
+print(f"El area del cuadrado es: \n{figura1.calcular_area()} y el perimetro es {figura1.calcular_perimetro()}")
+print(f"El area del Rectangulo es: \n{figura2.calcular_area()} y el Perimetro es {figura2.calcular_perimetro()}")
+print(f"El area del Triangulo es: \n{figura3.calcular_area()} y el perimetro es {figura3.calcular_perimetro()}")
+
+class Point ():
+    def __init__(self,x,y):
+        self.x = x
+        self.y = y
+
+class Linea():
+    def __init__ ( self, punto_inicial,  punto_final ):
+
+
+        self.punto_I =  punto_inicial
+        self.punto_F =  punto_final  
+
+        print ((self.punto_I))
+        print ((self.punto_F))
+        x1 ,y1 = self.punto_I
+        x2 ,y2 = self.punto_I     
+        print (y1,x1)
+        print (y2,x2)
+
+    
+carro= Linea((1,2),(2,2))    
+print (carro)
