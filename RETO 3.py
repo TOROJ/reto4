@@ -105,7 +105,7 @@ class Order:
 
         return self.total
     
-    def descuento(self):
+    def Pago(self):
         if 100000>self.total >=80000:
             return self.total*0.95 
         elif 300000>self.total>=100000:
@@ -132,4 +132,4 @@ cliente.añadidura(Almuerzo("corriente", 25000, True))
 cliente.añadidura(Postre("brownie", 1000, True))
 
 print(f"Total before discount: ${cliente.cuenta()}")
-print (f"total after discount: $ {cliente.descuento()}")
+print (f"total after discount: $ {cliente.Pago()}")
