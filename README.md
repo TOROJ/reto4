@@ -1,5 +1,5 @@
 # Ejercicio 4
-## reto 4
+## reto 4 A
 En este ejercicio podemos observar la implementación de composición, de hherencia, de polimorfismo y de encapsulamiento.
 el objetivo es una mega clase que le de a las clases hijas diferentes datos y atributos, de los cuales le permita conocer el area, el perimetro, los vertices, las aristas y los angulos internos. 
 pero primero creamos la clase padre donde estara gran parte de todo el codigo.
@@ -212,23 +212,14 @@ class Shape():
     regular: bool 
     def __init__(self):
         pass
-
-    
     def calcular_area(self ):
         pass
-
     def vertices(self, lista : "Point"):
         pass
-
-
     def aristas(self, lista : "Linea"):
         pass
-
-
     def angulos_interiores (self ):
         pass
-     
-
     def calcular_perimetro(self):
         pass
 
@@ -254,30 +245,22 @@ class Rectangulo (Shape):
             print (f"sus lados son  {self.L1, self.L2,self.L3,self.L4}")
         else:
             return "no es un rectangulo, por favor organiza los datos de una forma correcta"
-    
-
     def calcular_perimetro(self):
         if self.L1 == self.L3 and self.L2 ==self.L4:
             return f"Su perimetro es {(self.L1 + self.L2 )*2} unidades"
         else :
             return "no es un rectangulo"
-    
-
     def calculara_area(self):
         if self.L1 == self.L3 and self.L2 ==self.L4:
             return f"Su area son {(self.L1 * self.L2 )} unidades"
         else :
             return "no es un rectangulo, por favor organiza los datos de una forma correcta"      
-    
-
     def vertices( self):
         if self.L1 == self.L3 and self.L2 ==self.L4:
             return f"Sus vertices son los puntos: \nPunto 1: {self.L1} \nPunto 2: {self.L2} "\
                 f"\nPunto 3: { self.L3} \nPunto 4: {self.L4}\nlista={[self.L1,self.L2,self.L3,self.L4]}"
         else :
             return "no es un rectangulo, por favor organiza los datos de una forma correcta"
-        
-
     def aristas(self):
         if self.L1 == self.L3 and self.L2 ==self.L4:
             return f"Sus aristas son las lineas:\nLinea 1: {self.L1} unidades\nLinea 2: {self.L2} unidades"\
@@ -292,11 +275,9 @@ class Rectangulo (Shape):
                     "90°  por vertice"
         else :
             return "no es un rectangulo, por favor organiza los datos de una forma correcta"    
-
 class Cuadrado (Rectangulo):
     regular: bool = True
     def __init__ ( self, p1: tuple ,  p2: tuple, p3: tuple, p4:tuple):
-
         self.linea1 = Linea(p1,p2)
         Li1 = self.linea1.distancia()
         self.linea2 = Linea(p2,p3)
@@ -312,7 +293,6 @@ class Cuadrado (Rectangulo):
                 print ("No es un Cuadrado, Organiza mejor los vertices")
         else:
             print ("No es un Cuadrado, Organiza mejor los vertices")
-        
     def ang_inter(self):
         if self.L1 == self.L3 and self.L2 ==self.L4:
             if self.L2== self.L4 and self.L1 ==self.L4:
@@ -321,22 +301,18 @@ class Cuadrado (Rectangulo):
             return "no es un cuadrado"
         else :
             return "no es un cuadrado "  
-
-
 class Triangulo(Shape):
     regular: bool = True
     def __init__ ( self, p1: tuple ,  p2: tuple, p3: tuple):
         self.p1 =p1
         self.p2 =p2
         self.p3 =p3
-
         self.linea1 = Linea(p1,p2)
         self.L1 = self.linea1.distancia()
         self.linea2 = Linea(p2,p3)
         self.L2 = self.linea2.distancia()
         self.linea3 = Linea(p3,p1)
         self.L3 = self.linea3.distancia()
-
         self.perimetro = (self.L1 + self.L2 + self.L3)
         self.perimetro_2 = self.perimetro /2
         self.area = ((self.perimetro_2)*(self.perimetro_2-self.L1)*\
@@ -351,60 +327,38 @@ class Triangulo(Shape):
         self.inter_L1 = inter_L1 *180 / 3.14159265358979323846264
         self.inter_L2 = inter_L2 *180 / 3.14159265358979323846264
         self.inter_L3 = inter_L3 *180 / 3.14159265358979323846264
-
-
     def calcular_perimetro(self):
         if self.area == 0:
             return "...¡¿algo salio mal?! ordena mejor los datos"
-        
         return f"El perimetro del triangulo es {self.perimetro}"
-
     def calcular_area(self):
         if self.area == 0:
-            return "...¡¿algo salio mal?! ordena mejor los datos"
-        
+            return "...¡¿algo salio mal?! ordena mejor los datos" 
         return f"El area del triangulo es {self.area}"
-    
     def aristas(self):
         if self.area == 0:
             return "...¡¿algo salio mal?! ordena mejor los datos"
-        
         return f"Las aristas del triangulo son \n{self.L1}\n{self.L2}\n{self.L3}"\
                 f"\nlista={[self.L1,self.L2,self.L3]}"
-
     def vertices(self):
         if self.area == 0:
             return "...¡¿algo salio mal?! ordena mejor los datos"
-        
         return f"Los vertices del triangulo son \n{self.p1} \n{self.p2} \n{self.p3}"\
                 f"\nlista={[self.L1,self.L2,self.L3]}"
-    
     def ang_inter(self):
         if self.area == 0:
             return "...¡¿algo salio mal?! ordena mejor los datos"
         else:
            return f"Aproximadamente los angulos internos son: \n{self.inter_L1}°\n{self.inter_L2}°\n{self.inter_L3}°"
-           
-
 class   Isosceles(Triangulo):
-    def __init__ ( self, p1: tuple ,  p2: tuple, p3: tuple):
-        
-         super().__init__(p1,p2,p3)
-
-
+    def __init__ ( self, p1: tuple ,  p2: tuple, p3: tuple):       
+        super().__init__(p1,p2,p3
 class Equilateral(Triangulo):
     pass
-
-
 class Scalene(Triangulo):
     pass
-
-
 class TriRectangle(Triangulo):
     pass
-
-
-
 figura3 = Isosceles ((0,0),(6,0),(3,5))
 carro= Rectangulo((2,0),(0,0),(0,3),(2,3))    
 moto = Cuadrado((2,0),(0,0),(0,2),(2,2))
@@ -429,4 +383,33 @@ posdata, deje unos ejercicios de los cuales corren bastante bien.
 
 
 
-##Reto_4 b
+##Reto_4 B
+Ya el codigo esta bastante largo, asi que no me pienso alargar mucho:
+al inicio cambie los unicos datos a protegido, para poder asi cumplir con lo requerido
+  ``` python
+class MenuItem():    
+    def __init__(self, nombre: str, precio: float):
+        self._nombre = nombre
+        self._precio = precio
+  ```
+luego añadi getters ysetters para poder modificar los datos que se vayan a ingresar:
+
+  ```python
+class MenuItem():    
+    def __init__(self, nombre: str, precio: float):
+        self._nombre = nombre
+        self._precio = precio
+    def neto(self):
+        return self._precio
+    def get_nombre(self):
+        return self._nombre
+    def set_nombre(self, nombre):
+        self._nombre = nombre
+    def get_precio(self):
+        return self._precio
+    def set_precio(self, precio):
+        self._precio = precio
+    def __str__(self):
+        return f"{self._nombre}: ${self._precio}"
+
+  ```
