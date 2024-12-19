@@ -413,3 +413,37 @@ class MenuItem():
         return f"{self._nombre}: ${self._precio}"
 
   ```
+Y por ultimo el ex total lo volvi solo como un dato más para luego ser remplazado por Pago, este define el pago total despues de algunos descuentos que se pueden hacer.
+
+  ```python
+    def cuenta(self):
+        self.total = float(0)                
+        
+        for item in self.lista_cuenta:
+            self.total += item.neto()
+
+        return self.total
+    
+    def Pago(self):
+        if 100000>self.total >=80000:
+            return self.total*0.95 
+        elif 300000>self.total>=100000:
+            return self.total*0.90
+        elif 500000>self.total>=300000:
+            return self.total*0.85
+        elif 1000000>self.total>500000:
+            return self.total*0.8
+        else:
+            return self.total*0.7
+  ```
+
+## Palabra y Conclusiones:
+*si soy sincero ayer me di cuenta que tocaba para hoy esta tarea*, y me di cuenta **taaarde**, terminar la megaclase hoy, no tenia mucho tiempo pero no fue dificil, lo unico que no pude realmente hacer fue que la persona ingresara los vertices en el rectangulo y no le afectara por la posicion. me trabe un buen tiempo pensando como crearlo, pero entendiendo mejor el **encapsulamiento**, logre hacer que las figuras se volvieran lineas, y las lineas puntos...pero alrevez...(lo siento estoy muy cansado).
+
+el punto **(".")** saber ya como volver vertices en figuras me hizo acabar la megaclase que hace no mucho la acabe.
+
+**No habia adelantado nada del punto b**, lo primero que pense fue en ponerlo en privado pero me parecio muy largo y tendria que pensar en muchas cosas más... y pues esta vez quise lo facil, lo protegido. solo fue poner un par de getters y setters y luego cambie unas cosas minimas en el codigo, al final no tenia ya mente para pensar en un descuento, asi que hice la facil, "cierto precio" =  "cierto descuento", al inicio quize ponerle como *0.8 pero me di cuenta que eso era demasiado, y yo no iba a perder 20 mil pesos asi de chevere...bueno conclusión, toca estar mas pendientes pa la proxima....
+
+Estuvo divertido las figuras, me gusto aprender **composición**, lastima que me gasto mucho tiempo y energia, la verdad con los getters siento que no me rete tanto, pero fue igual de divertido, ahora ya entiendo mucho mejor la composición y la herencia (talvez en el proximo reto diga lo mismo de los getters), si llegaste hasta acá aguantando mi falta de tildes y horrores de ortografia con un readme supremamente largo y un poco confuso. gracias! 
+
+### Hasta el proximo Reto_ bye!
