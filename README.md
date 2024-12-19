@@ -1,5 +1,5 @@
 # Ejercicio 4
-## reto 4 A
+## Reto_4 A
 En este ejercicio podemos observar la implementación de composición, de hherencia, de polimorfismo y de encapsulamiento.
 el objetivo es una mega clase que le de a las clases hijas diferentes datos y atributos, de los cuales le permita conocer el area, el perimetro, los vertices, las aristas y los angulos internos. 
 pero primero creamos la clase padre donde estara gran parte de todo el codigo.
