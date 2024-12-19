@@ -45,16 +45,15 @@ Para darse una idea es algo asi :
 
 ```mermaid
 classDiagram
-class point {
-+vertice: punto
+class Punto {
+  punto: tuple
 }
-class linea {
-+arista: 2 puntos
+class Linea {
+ dos_puntos : float
 }
-figura {
-+cuadrado :  lineas
+class Figura {
+  cuadrad : 4 lineas
 }
-point-->linea
-linea-->figura
-
+Punto-->Linea
+Linea-->Figura
 ```
